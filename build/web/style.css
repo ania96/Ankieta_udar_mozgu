@@ -1,0 +1,89 @@
+.q {
+    display: block;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding-top: 0.5em;
+    padding-bottom: 0.75em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 1px solid green;
+    
+}
+.background
+{
+	background-color:bisque;
+}
+
+.whole-survey {
+    width:100%;
+    height:100%;
+    background: #ffffe6;
+    
+}
+
+.whole-survey__thanks-bg {
+    width:100%;
+    height:1000px;
+background: #ffffe6;
+font-size: uppercase;
+margin: auto;
+text-align: center;
+padding-top: 60px;
+
+}
+.survey__introduction
+{
+	height:30%;
+	width:100%;
+	background-color: #99ccff;
+	text-align: center;
+}
+.survey__introduction--intro {
+	font-weight:bold;
+	font-size: 35px;
+	text-transform: uppercase;
+}
+.survey__introduction--tips {
+	font-size:25px;
+	padding-top:20px;
+}
+.survey__submit {
+	padding-left: 413px;
+	padding-top: 50px;
+}
+
+.end-and-submit{
+    width:245px;
+	height:70px;
+	display: inline-block;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #006600;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.survey
+{
+	height:70%;
+	width:100%;
+}
+.survey__question {
+    padding-top:20px;
+}
+.survey--heading
+{
+	font-size: 15px;
+	font-weight: bold;
+	color: #000099;
+
+
+}
+
+.image
+{
+	width:130px;
+	height:130px;
+}

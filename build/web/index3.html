@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	exportEnabled: true,
+	theme: "dark1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Ilość prawidłowych odpowiedzi udzielonych przez mężczyzn(50) na dane pytanie"
+	},
+	
+	data: [{
+		type: "column", //change type to bar, line, area, pie, etc
+		//indexLabel: "{y}", //Shows y value on all Data Points
+		indexLabelFontColor: "#ff0000",
+		indexLabelPlacement: "outside",
+		dataPoints: [
+			{ x: 6, y: 19 },
+			{ x: 7, y: 20 },
+			{ x: 8, y: 45 },
+			{ x: 9, y: 43 },
+			{ x: 10, y: 45 },
+			{ x: 11, y: 38 },
+			{ x: 12, y: 17 },
+			{ x: 13, y: 47, indexLabel: "Najwyższy" },
+			{ x: 14, y: 31 },
+			{ x: 15, y: 39 },
+			{ x: 16, y: 26 },
+			{ x: 17, y: 14 , indexLabel: "Najniższy" },
+			{ x: 18, y: 46}
+			
+		]
+	}],
+	subtitles: [{
+		text: "Click Legend to Hide or Unhide Data Series"
+	}], 
+});
+chart.render();
+
+var chart5 = new CanvasJS.Chart("chartContainer5", {
+	animationEnabled: true,
+	exportEnabled: true,
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Ilość prawidłowych odpowiedzi udzielonych przez kobiety(56) na dane pytanie"
+	},
+	
+	data: [{
+		type: "column", //change type to bar, line, area, pie, etc
+		//indexLabel: "{y}", //Shows y value on all Data Points
+		indexLabelFontColor: "#5A5757",
+		indexLabelPlacement: "outside",
+		dataPoints: [
+			{ x: 6, y: 23 },
+			{ x: 7, y: 16 },
+			{ x: 8, y: 49 },
+			{ x: 9, y: 42 },
+			{ x: 10, y: 52 },
+			{ x: 11, y: 42 },
+			{ x: 12, y: 32 },
+			{ x: 13, y: 55 , indexLabel: "Najwyższy"},
+			{ x: 14, y: 20 },
+			{ x: 15, y: 40 },
+			{ x: 16, y: 48 },
+			{ x: 17, y: 15 , indexLabel: "Najniższy"},
+			{ x: 18, y: 48}
+			
+		]
+	}],
+	subtitles: [{
+		text: "Click Legend to Hide or Unhide Data Series"
+	}], 
+});
+chart5.render();
+
+
+var chart2 = new CanvasJS.Chart("chartContainer2", {
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	exportEnabled: true,
+	animationEnabled: true,
+	title: {
+		text: "Miejsce zamieszkania ankietowanych"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 25,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} =>{y}%",
+		dataPoints: [
+			{ y: 24.5, label: "Wieś" },
+			{ y: 18.9, label: "Miasto do 50 tys. mieszkańców" },
+			{ y: 32.1, label: "Miasto do 100 tys. mieszkańców" },
+			{ y: 17.0, label: "Masto do 500 tys. mieszkańców" },
+			{ y: 6.6, label: "Miasto powyżej 500 tys. mieszkańców" }
+		]
+	}]
+});
+chart2.render();
+
+
+
+
+var chart3 = new CanvasJS.Chart("chartContainer3", {
+	exportEnabled: true,
+	animationEnabled: true,
+	title:{
+		text: "Odpowiedzi tak/nie"
+	},
+	subtitles: [{
+		text: "Click Legend to Hide or Unhide Data Series"
+	}], 
+	axisX: {
+		title: "Pytania"
+	},
+	axisY: {
+		title: "Liczba prawidłowych odpowiedzi",
+		titleFontColor: "#4F81BC",
+		lineColor: "#4F81BC",
+		labelFontColor: "#4F81BC",
+		tickColor: "#4F81BC"
+	},
+	axisY2: {
+		title: "Liczba błędnych odpowiedzi",
+		titleFontColor: "#C0504E",
+		lineColor: "#C0504E",
+		labelFontColor: "#C0504E",
+		tickColor: "#C0504E"
+	},
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		cursor: "pointer",
+		itemclick: toggleDataSeries
+	},
+	data: [{
+		type: "column",
+		name: "Prawidłowe odpowiedzi",
+		showInLegend: true,      
+		yValueFormatString: "#,##0.#",
+		dataPoints: [
+			{ label: "Czy nadciśnienie tętnicze powiązane jest z wystąpieniem udaru mózgu?",  y: 95 },
+			{ label: "Czy palenie papierosów to jeden z czynników ryzyka udaru mózgu?", y: 86 },
+			{ label: "Czy nadużywanie alkoholu zwiększa prawdopodobieństwo wystąpienia udaru mózgu?", y: 98 },
+			{ label: "Czy udar dotyczy tylko osób powyżej 50 roku życia?",  y: 101 },
+			{ label: "Czy udar mózgu jest przyczyną dysfagii?",  y: 68 }
+		]
+	},
+	{
+		type: "column",
+		name: "Błędne odpowiedzi",
+		axisYType: "secondary",
+		showInLegend: true,
+		yValueFormatString: "#,##0.#",
+		dataPoints: [
+			{ label: "Czy nadciśnienie tętnicze powiązane jest z wystąpieniem udaru mózgu?", y: 11 },
+			{ label: "Czy palenie papierosów to jeden z czynników ryzyka udaru mózgu?", y: 20 },
+			{ label: "Czy nadużywanie alkoholu zwiększa prawdopodobieństwo wystąpienia udaru mózgu?", y: 8 },
+			{ label: "Czy udar dotyczy tylko osób powyżej 50 roku życia?", y: 5 },
+			{ label: "Czy udar mózgu jest przyczyną dysfagii?", y: 38 }
+		]
+	}]
+});
+chart3.render();
+
+function toggleDataSeries(e) {
+	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else {
+		e.dataSeries.visible = true;
+	}
+	e.chart3.render();
+}
+
+
+
+
+var chart4 = new CanvasJS.Chart("chartContainer4", {
+	animationEnabled: true,
+	exportEnabled: true,
+	theme: "light1",
+	title:{
+		text: "Stan wiedzy ankietowanych"
+	},
+	data: [{
+		type: "pyramid",
+		yValueFormatString: "#\"%\"",
+		indexLabelFontColor: "black",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} => zdobyło {y} ankietowanych",
+		//reversed: true, // Reverses the pyramid
+		dataPoints: [
+			{ y: 44.3, label: "Punkty:(11-13)" },
+			{ y: 37.8, label: "Punkty: (8-10)" },
+			{ y: 10.4, label: "Punkty: (6-7)" },
+			{ y: 6.6, label: "Punkty: (14-16)" },
+			{ y: 0.9, label: "Punkty: (0-5)" }
+		]
+	}]
+});
+chart4.render();
+
+}
+
+</script>
+</head>
+<body>
+		<center><img src="images/pytania.png" alt="rapid"/></center><br/>
+</body>
+
+<div id="chartContainer" style="height: 370px; width: 80%; margin: auto"></div><br/><br/><br/><br/><br/><br/>
+<div id="chartContainer5" style="height: 370px; width: 80%; margin: auto"></div><br/><br/><br/><br/><br/><br/>
+<div id="chartContainer2" style="height: 370px; width: 100%;"></div><br/><br/><br/><br/><br/><br/>
+<div id="chartContainer3" style="height: 370px; width: 80%; margin: auto"></div><br/><br/><br/><br/><br/><br/>
+<div id="chartContainer4" style="height: 370px; width: 100%;"></div><br/><br/><br/><br/><br/><br/>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<h1 style="text-align: center">Przykładowe wykresy wygenerowane przy użyciu programu Rapidminer</h1>
+ <center><img src="images/rapid.png" alt="rapid"/></center><br/><br/><br/>
+  <h2 style="text-align: center">Ilość kobiet i mężczyzn biorących udział w ankiecie</h2>
+  <center><img src="images/plec.png" alt="plec"/></center>  <br/><br/><br/>
+  <h2 style="text-align: center">Histogram udzielonych odpowiedzi</h2>
+   <center><img src="images/histogram.png" alt="histogram"/></center><br/><br/><br/>
+    <h2 style="text-align: center">Wykres poprawnie udzielonych odpowiedzi</h2>
+	<p style="text-align: center">(możliwość zliczenia i wskazania, które odpowiedzi udzielone przez danego ankietowanego były poprawne)</p>
+    <center><img src="images/poprawne.png" alt="porawne"/></center><br/><br/><br/>
+	<h2 style="text-align: center">Liczba oddanych głosów na poszczególne odpowiedzi</h2>
+	<p style="text-align: center">Pytanie: Jaka jest prawidłowa wartość ciśnienia rozkurczowego krwi?</p>
+	 <center><img src="images/rozkurczowe.png" alt="rozkurczowe"/></center><br/><br/><br/>
+	 <h2 style="text-align: center">Liczba oddanych głosów na poszczególne odpowiedzi</h2>
+	<p style="text-align: center">Pytanie: Jaka jest prawidłowa wartość ciśnienia skurczowego krwi?</p>
+	  <center><img src="images/skurczowe.png" alt="skurczowe"/></center><br/><br/><br/>
+	  
+	  <h1 style="text-align: center">Drzewa decyzyjne wygenerowane przy użyciu programu Rapidminer</h1>
+	   <center><img src="images/rapid.png" alt="rapid"/></center><br/><br/><br/>
+	   
+	<h2 style="text-align: center">Drzewo decyzyjne dla pytania "Co to jest udar mózgu?"</h2>
+  <center><img src="images/drzewo.png" alt="drzewo"/></center>  <br/><br/><br/>
+  
+   <h2 style="text-align: center">Drzewo decyzyjne dla pytania "Jakie nawyki żywieniowe zapobiegają wystąpieniu udaru mózgu?"</h2>
+  <center><img src="images/drzewo2.png" alt="drzewo2"/></center>  <br/><br/><br/>
+  
+   <h2 style="text-align: center">Drzewo decyzyjne dla pytania "Którą z kolei przyczyną śmierci jest udar mózgu?"</h2>
+  <center><img src="images/drzewo3.png" alt="drzewo3"/></center>  <br/><br/><br/>
+  
+   <h2 style="text-align: center">Drzewo decyzyjne dla pytania "Jaka jest prawidłowa wartość ciśnienia rozkurczowego krwi?"</h2>
+  <center><img src="images/drzewo4.png" alt="drzewo4"/></center>  <br/><br/><br/>
+
+</html>
